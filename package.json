@@ -1,0 +1,53 @@
+{
+  "name": "react-starter-template",
+  "version": "1.0.0",
+  "description": "React + MobX + Router5",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pzmosquito/react-starter-template.git"
+  },
+  "author": "Peter Zhang",
+  "bugs": {
+    "url": "https://github.com/pzmosquito/react-starter-template/issues"
+  },
+  "homepage": "https://github.com/pzmosquito/react-starter-template",
+  "scripts": {
+    "lint": "esw --ext .jsx,.js ./webui/",
+    "lint:watch": "npm run lint -- --watch",
+    "build": "parcel build ./webui/index.html",
+    "start": "parcel ./webui/index.html --open"
+  },
+  "dependencies": {
+    "@babel/polyfill": "~7.0.0",
+    "mobx": "~4.3.2",
+    "mobx-react": "~5.2.8",
+    "mobx-router5": "~4.2.3",
+    "react": "~16.5.2",
+    "react-dom": "~16.5.2",
+    "react-hot-loader": "~4.3.11",
+    "react-mobx-router5": "~6.1.1",
+    "router5": "~6.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "~7.1.2",
+    "@babel/plugin-proposal-class-properties": "~7.1.0",
+    "@babel/plugin-proposal-decorators": "~7.1.2",
+    "@babel/preset-env": "~7.1.0",
+    "@babel/preset-flow": "~7.0.0",
+    "@babel/preset-react": "~7.0.0",
+    "autoprefixer": "~9.1.5",
+    "babel-eslint": "~10.0.1",
+    "eslint": "~5.6.1",
+    "eslint-config-airbnb": "~17.1.0",
+    "eslint-plugin-flowtype": "~2.50.3",
+    "eslint-plugin-import": "~2.14.0",
+    "eslint-plugin-jsx-a11y": "~6.1.1",
+    "eslint-plugin-react": "~7.11.1",
+    "eslint-watch": "~4.0.2",
+    "flow-bin": "~0.81.0",
+    "less": "~3.8.1",
+    "mobx-react-devtools": "~6.0.3",
+    "parcel-bundler": "~1.10.1"
+  }
+}

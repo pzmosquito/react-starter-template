@@ -1,0 +1,12 @@
+# node packages
+node_modules/
+
+# parcel generated files
+dist/
+.cache/
+
+# IDEA IDEs
+.idea/
+
+# Visual Studio Code
+.vscode/
