@@ -8,16 +8,18 @@ import DevTools from 'mobx-react-devtools';
 import * as stores from '../stores';
 import Layout from './Layout/Layout';
 import createRouter from '../routing/create-router';
+import dataLoaderMiddleware from '../routing/data-loader-middleware';
 import '../assets/styles/main.less';
 
 
 // router
 const router = createRouter(stores.routerStore, process.env.NODE_ENV === "development");
+router.useMiddleware(dataLoaderMiddleware);
 
 // app container
 const appContainer = document.getElementById('app');
 if (appContainer === null) {
-    throw new Error("container id 'app' is not defined.");
+    throw new Error("app container id 'app' is not defined.");
 }
 
 // app component
