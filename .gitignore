@@ -1,4 +1,8 @@
 # node packages
 node_modules/
 
+# IDE configs
 .vscode/
+
+# webpack output
+dist/
