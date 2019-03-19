@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import path from "path";
 import webpack from "webpack";
 import WebpackDevServer from "webpack-dev-server";
@@ -10,7 +11,7 @@ const options = {
     disableHostCheck: true,
     hot: false,
     contentBase: path.join(__dirname, "dist"),
-    clientLogLevel: "error"
+    clientLogLevel: "error",
 };
 const server = new WebpackDevServer(compiler, options);
 

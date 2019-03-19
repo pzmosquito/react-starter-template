@@ -12,21 +12,17 @@ A starter template for React + MobX + Router5 development.
 
 1. Install dependencies: `npm install`
 
-1. Start the app: `npm start`
+1. Start the app: `npm run dev`
    
-   This will run the build process, serve and launch the application at `localhost:1234`
-
-1. [optional] Run linter: `npm run lint`
-
-    If you want the linter to watch for file changes, run: `npm run lint:watch`
+   This will run the build process, serve and launch the application at `localhost:3000`
 
 ## Technologies
 
   - [React](https://facebook.github.io/react) - A JavaScript library for building user interfaces
   - [MobX](https://mobx.js.org) - Simple, scalable state management
-  - [Router5](http://router5.github.io) - Functional, flexible and powerful routing solution
+  - [Router5](https://router5.js.org) - Functional, flexible and powerful routing solution
   - [Babel](https://babeljs.io) - A JavaScript compiler
-  - [Parcel](https://parceljs.org) - Blazing fast, zero configuration web application bundler
+  - [Webpack](https://webpack.js.org/) - A static module bundler for modern JavaScript applications
   - [LESS](http://lesscss.org) - A backwards-compatible language extension for CSS
   - [PostCSS](http://postcss.org) - A tool for transforming CSS with JavaScript
   - [ESLint](https://eslint.org) - The pluggable linting utility for JavaScript and JSX

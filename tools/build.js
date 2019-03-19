@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable import/no-extraneous-dependencies,no-console */
 import webpack from "webpack";
 import config from "../webpack.config";
 

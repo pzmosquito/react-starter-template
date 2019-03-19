@@ -16,7 +16,7 @@
     // Allow double to be used for strings.
     "quotes": ["error", "double"],
     // four space indent
-    "indent": ["error", 4, {"SwitchCase": 1}],
+    "indent": ["error", 4, { "SwitchCase": 1 }],
     // Stroustrup brace style
     "brace-style": ["error", "stroustrup"],
     // just chain calls reasonably, don't make it hard to read
