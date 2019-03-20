@@ -21,21 +21,21 @@
     "analyze-bundle": "APP_ENV=production babel-node ./tools/analyzeBundle.js"
   },
   "dependencies": {
-    "@babel/polyfill": "~7.2.5",
+    "@babel/polyfill": "~7.4.0",
     "mobx": "~5.9.0",
     "mobx-react-lite": "~1.1.1",
-    "mr-router5": "~0.0.11",
+    "mr-router5": "~0.0.13",
     "react": "~16.8.4",
     "react-dom": "~16.8.4",
     "router5": "~7.0.1",
     "router5-plugin-browser": "~7.0.2"
   },
   "devDependencies": {
-    "@babel/core": "~7.3.3",
+    "@babel/core": "~7.4.0",
     "@babel/node": "~7.2.2",
-    "@babel/plugin-proposal-class-properties": "~7.3.4",
-    "@babel/plugin-proposal-decorators": "~7.3.0",
-    "@babel/preset-env": "~7.3.4",
+    "@babel/plugin-proposal-class-properties": "~7.4.0",
+    "@babel/plugin-proposal-decorators": "~7.4.0",
+    "@babel/preset-env": "~7.4.1",
     "@babel/preset-flow": "~7.0.0",
     "@babel/preset-react": "~7.0.0",
     "autoprefixer": "~9.5.0",

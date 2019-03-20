@@ -4,27 +4,13 @@ import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import OptimizeCSSAssetsPlugin from "optimize-css-assets-webpack-plugin";
+import envs from "./envs";
 
 
-const ENVS = {
-    development: {
-        API_URL: "https://dev.change.me/api",
-    },
-    test: {
-        API_URL: "https://test.change.me/api",
-    },
-    staging: {
-        API_URL: "https://staging.change.me/api",
-    },
-    production: {
-        API_URL: "https://change.me/api",
-    },
-};
-
-const GLOBAL_CONSTS = Object.entries(ENVS[process.env.APP_ENV]).reduce(
-    (acc, [key, val]) => Object.assign(acc, { [`process.env.${key}`]: JSON.stringify(val) }),
-    { "process.env.APP_ENV": JSON.stringify(process.env.APP_ENV) },
-);
+const GLOBAL_CONSTS = { "process.env.APP_ENV": JSON.stringify(process.env.APP_ENV) };
+Object.entries(envs[process.env.APP_ENV]).forEach(([key, val]) => {
+    GLOBAL_CONSTS[`process.env.${key}`] = JSON.stringify(val);
+});
 
 const mode = process.env.APP_ENV === "development" ? "development" : "production";
 
