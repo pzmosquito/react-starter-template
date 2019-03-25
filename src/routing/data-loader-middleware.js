@@ -22,22 +22,36 @@ const loadData = (promises?: Array<Promise<any>> = []) => {
         });
 };
 
+const requireLogin = (successFn: Function, errorFn?: Function) => {
+    api.user.auth()
+        .then(() => {
+            successFn();
+        })
+        .catch(() => {
+            if (errorFn) {
+                errorFn();
+            }
+        });
+};
+
+export {
+    loadData,
+    requireLogin,
+};
+
 export default () => (toState: Object, fromState: Object, done: Function) => {
     if (Object.prototype.hasOwnProperty.call(dataLoader, toState.name)) {
         const dl = dataLoader[toState.name];
+        const loaderFn = () => dl.loader({ toState, fromState, loadData, done });
 
         if (dl.loginRequired) {
-            api.user.auth()
-                .then(() => {
-                    dl.loader({ toState, fromState, loadData, done });
-                })
-                .catch(() => {
-                    // handle auth error
-                    done();
-                });
+            requireLogin(
+                loaderFn,
+                done,
+            );
         }
         else {
-            dl.loader({ toState, fromState, loadData, done });
+            loaderFn();
         }
     }
     else {
