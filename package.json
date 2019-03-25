@@ -13,15 +13,15 @@
   },
   "homepage": "https://github.com/pzmosquito/react-starter-template",
   "scripts": {
-    "dev": "APP_ENV=development babel-node ./tools/devServer.js",
-    "build": "babel-node ./tools/build.js",
+    "dev": "APP_ENV=development node ./tools/devServer.js",
+    "build": "node ./tools/build.js",
     "build:test": "APP_ENV=test npm run build",
     "build:staging": "APP_ENV=staging npm run build",
     "build:production": "APP_ENV=production npm run build",
-    "analyze-bundle": "APP_ENV=production babel-node ./tools/analyzeBundle.js"
+    "analyze-bundle": "APP_ENV=production node ./tools/analyzeBundle.js"
   },
   "dependencies": {
-    "@babel/polyfill": "~7.4.0",
+    "core-js": "~3.0.0",
     "mobx": "~5.9.0",
     "mobx-react-lite": "~1.1.1",
     "mr-router5": "~0.0.13",
@@ -32,7 +32,6 @@
   },
   "devDependencies": {
     "@babel/core": "~7.4.0",
-    "@babel/node": "~7.2.2",
     "@babel/plugin-proposal-class-properties": "~7.4.0",
     "@babel/plugin-proposal-decorators": "~7.4.0",
     "@babel/preset-env": "~7.4.2",

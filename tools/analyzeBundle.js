@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies,no-console */
-import webpack from "webpack";
-import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
-import config from "../webpack.config";
+const webpack = require("webpack");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+const config = require("../webpack.config");
 
 
 config.plugins.push(new BundleAnalyzerPlugin({

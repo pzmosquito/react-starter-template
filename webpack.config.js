@@ -1,22 +1,18 @@
 /* eslint-disable no-console */
-import webpack from "webpack";
-import path from "path";
-import HtmlWebpackPlugin from "html-webpack-plugin";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import OptimizeCSSAssetsPlugin from "optimize-css-assets-webpack-plugin";
-import envs from "./envs";
+const webpack = require("webpack");
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const envs = require("./envs");
+const stringifyEnvs = require("./tools/stringifyEnvs");
 
-
-const GLOBAL_CONSTS = { "process.env.APP_ENV": JSON.stringify(process.env.APP_ENV) };
-Object.entries(envs[process.env.APP_ENV]).forEach(([key, val]) => {
-    GLOBAL_CONSTS[`process.env.${key}`] = JSON.stringify(val);
-});
 
 const mode = process.env.APP_ENV === "development" ? "development" : "production";
 
 console.log(`webpack is compiling in ${mode} mode.`);
 
-export default {
+module.exports = {
     mode,
     target: "web",
     resolve: {
@@ -42,7 +38,7 @@ export default {
         new MiniCssExtractPlugin({
             filename: "[name].[hash].css",
         }),
-        new webpack.DefinePlugin(GLOBAL_CONSTS),
+        new webpack.DefinePlugin(stringifyEnvs(envs[process.env.APP_ENV])),
     ],
     module: {
         rules: [

@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     development: {
         API_URL: "https://dev.change.me/api",
     },

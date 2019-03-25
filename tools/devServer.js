@@ -1,8 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import path from "path";
-import webpack from "webpack";
-import WebpackDevServer from "webpack-dev-server";
-import config from "../webpack.config";
+const webpack = require("webpack");
+const path = require("path");
+const WebpackDevServer = require("webpack-dev-server");
+const config = require("../webpack.config");
 
 
 const compiler = webpack(config);
