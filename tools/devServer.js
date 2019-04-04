@@ -12,6 +12,7 @@ const options = {
     hot: false,
     contentBase: path.join(__dirname, "dist"),
     clientLogLevel: "error",
+    open: process.argv[2] === "--open",
 };
 const server = new WebpackDevServer(compiler, options);
 

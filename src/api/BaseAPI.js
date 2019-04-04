@@ -1,13 +1,13 @@
 // @flow
 class BaseAPI {
-    csrftoken = null;
+    csrftoken: ?string = null;
 
-    apiUrl = process.env.API_URL;
+    apiUrl: ?string = process.env.API_URL;
 
-    requestInit(requestType?: string = "GET", body?: any, cors?: boolean = true): Object {
-        const init: Object = {
+    requestInit(requestType?: string = "GET", body?: JSONType, cors?: boolean = true): RequestOptions {
+        const init: RequestOptions = {
             method: requestType,
-            headers: { "Content-Type": "application/json" },
+            headers: new Headers({ "Content-Type": "application/json" }),
         };
 
         if (cors) {
@@ -20,13 +20,14 @@ class BaseAPI {
         }
 
         if (["POST", "PUT", "PATCH", "DELETE"].includes(requestType)) {
-            init.headers["X-CSRFTOKEN"] = this.csrftoken;
+            // TODO change header to an accepted header.
+            init.headers.set("X-CSRFTOKEN", this.csrftoken || "");
         }
 
         return init;
     }
 
-    fetchData(input: string, init?: Object = this.requestInit()) {
+    fetchData(input: string, init?: RequestOptions = this.requestInit()) {
         return fetch(input, init)
             .then((response) => {
                 this.csrftoken = response.headers.get("X-CSRFTOKEN");
@@ -47,15 +48,15 @@ class BaseAPI {
     }
 
     downloadFile(location: string, requestType?: string = "GET", body?: Object) {
-        const form = window.document.createElement("form");
+        const form: HTMLFormElement = window.document.createElement("form");
 
         form.target = "_blank";
         form.action = this.getUri(location);
         form.method = requestType;
 
         if (body) {
-            Object.entries(body).forEach(([key, val]) => {
-                const input = window.document.createElement("input");
+            Object.entries(body).forEach(([key, val]: [string, string]) => {
+                const input: HTMLInputElement = window.document.createElement("input");
                 input.name = key;
                 input.value = val;
                 form.appendChild(input);
@@ -64,7 +65,7 @@ class BaseAPI {
 
         window.document.body.appendChild(form);
         form.submit();
-        form.parentNode.removeChild(form);
+        window.document.body.removeChild(form);
     }
 
     getUri(location: string, version?: string = "v1.0") {

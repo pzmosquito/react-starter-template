@@ -4,3 +4,6 @@ declare type DataLoader = {
     loadData: Function,
     done: Function
 };
+
+
+declare type JSONType = null | string | number | boolean | {} | $ReadOnlyArray<mixed>;
