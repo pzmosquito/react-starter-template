@@ -3,7 +3,6 @@ const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const envs = require("./envs");
 const stringifyEnvs = require("./tools/stringifyEnvs");
 
@@ -29,9 +28,6 @@ module.exports = {
     devtool: "source-map",
     optimization: {
         noEmitOnErrors: true,
-        minimizer: [
-            new OptimizeCSSAssetsPlugin(),
-        ],
     },
     plugins: [
         new HtmlWebpackPlugin({ template: "./src/index.html" }),
@@ -94,12 +90,7 @@ module.exports = {
                 test: /(\.css|\.less)$/,
                 use: [
                     mode === "development" ? "style-loader" : MiniCssExtractPlugin.loader,
-                    {
-                        loader: "css-loader",
-                        options: {
-                            sourceMap: true,
-                        },
-                    },
+                    "css-loader",
                     "postcss-loader",
                     "less-loader",
                 ],
