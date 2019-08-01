@@ -1,4 +1,3 @@
-// @flow
 import { renderApp, router } from "./components/App";
 
 

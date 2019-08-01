@@ -1,4 +1,6 @@
-// @flow
+import AppStore from "./AppStore";
+
+
 class UIStore {
     appStore: AppStore;
 

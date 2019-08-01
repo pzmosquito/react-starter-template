@@ -14,7 +14,7 @@ trim_trailing_whitespace = false
 [*.{js,jsx,html}]
 indent_size = 4
 
-[{.eslintrc,.postcssrc}]
+[{.postcssrc}]
 indent_size = 2
 
 [*.{css,less,json}]

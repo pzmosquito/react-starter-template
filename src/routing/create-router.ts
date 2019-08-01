@@ -1,23 +1,22 @@
-// @flow
-import createRouter from "router5";
+import createRouter, { Options } from "router5";
+import { dataloaderMiddleware, RouteDef } from "mr-router5";
 import browserPlugin from "router5-plugin-browser";
 import scrollTopPlugin from "./scroll-top-plugin";
-import dataLoaderMiddleware from "./data-loader-middleware";
 
 
-export default (routes: Array<Object>) => {
+export default (routes: RouteDef[]) => {
+    // create router object
     const options = {
         defaultRoute: "home",
-        strictQueryParams: true,
     };
-
     const router = createRouter(routes, options);
 
-
+    // plugins
     router.usePlugin(browserPlugin({ useHash: false, preserveHash: false }));
     router.usePlugin(scrollTopPlugin);
 
-    router.useMiddleware(dataLoaderMiddleware);
+    // middleware
+    router.useMiddleware(dataloaderMiddleware);
 
     return router;
 };

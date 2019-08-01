@@ -1,9 +1,8 @@
-// @flow
 import * as React from "react";
+
 
 export default () => (
     <div>
-        <hr />
-        Footer
+        Hello World!
     </div>
 );

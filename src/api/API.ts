@@ -1,4 +1,3 @@
-// @flow
 import BaseAPI from "./BaseAPI";
 
 
